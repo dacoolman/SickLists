@@ -1,0 +1,31 @@
+
+<div ng-controller="controller1">
+
+
+
+
+<!-- 	<form>
+<input type='text' ng-model='hielo.name' ng-filter='filter_name' />
+<input type='submit' value='submit' ng-click='addme()' />
+</form><br> -->
+Search: 
+<input type='text' ng-model="filter_name" />
+<table>
+	<thead>
+		<tr>
+			<th>Question</th><th>Answers</th><th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="question in questions | filter: filter_name| orderBy: 'date' track by $index"><td>{{question.question}}</td><td>{{question.answers.length}}</td><td>
+	
+	
+		<a ng-href="#/view2/{{question._id}}"><button>Show</button></a><a ng-href="#/view4/{{question._id}}"><button>Answer</button></a></td></tr>
+</tbody>
+</table>
+
+
+
+</div>
+
+

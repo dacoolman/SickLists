@@ -1,0 +1,10 @@
+<div ng-controller="ask_c">
+	<div ng-show='error'>{{error}}</div>
+<h2>New Question</h2>
+<form>
+Question:<br> <textarea ng-model='ask.question'></textarea><br>
+Description:<br> <textarea ng-model='ask.description'></textarea><br>
+<a href='#/'><button>Cancel</button></a>
+<input type='submit' value='Submit' ng-click='submit()' />
+</form>
+</div>

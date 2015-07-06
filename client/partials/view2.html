@@ -1,0 +1,37 @@
+
+<div ng-controller='controller2'>
+
+	<h2>{{answers[0].question}}</h2>
+	
+	<h3>{{answers[0].description}}</h3>
+
+<!-- 	<form>
+	Customer:
+	<select ng-model='order.customer'>
+		<option  ng-repeat='customer in customers' value={{customer.name}}>{{customer.name}}</option>
+	</select> <br>
+	Order: 
+<select ng-model='order.quantity'>
+	<option value='1'>1</option>
+	<option value='2'>2</option>
+	<option value='3'>3</option>
+	<option value='4'>4</option>
+	<option value='5'>5</option>
+</select>
+<select ng-model='order.product'>
+	<option value='apple'>apple</option>
+	<option value='banana'>banana</option>
+	<option value='citrus'>citrus</option>
+	<option value='donut'>donut</option>
+	<option value='eggplant'>eggplant</option>
+</select>
+	<input type='submit' ng-click='add_order()' />
+</form>
+Search orders:
+<input type='text' ng-model='filter_two' /> -->
+
+Question author: {{answers[0].user}} <br>
+<div ng-repeat="answer in answers[0].answers| orderBy: '-date' track by $index">answer: {{answer.answer}} details: {{answer.details}} username: {{answer.username}} likes: {{answer.likes.length}}</div>
+
+
+</div>

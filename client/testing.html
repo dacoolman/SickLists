@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Assignment 1</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
+      <script type='text/javascript'>
+    var myApp = angular.module('myApp', []);
+ 
+myApp.factory('customerFactory', function (){
+    // a factory is nothing more than a function that returns an object literal!
+    var customers = [];
+    var factory = {};
+    
+    // add a getstudents method to the object we defined
+    factory.getCustomers = function (callback){
+        // pass the students to a callback to be used by whoever calls the method
+        callback(customers);
+    }
+    factory.updateCustomers = function(data){
+      customers = data;
+    }
+    // most important step: return the object so it can be used by the rest of our angular code
+    return factory
+});
+
+    myApp.controller('friendsController', function ($scope, customerFactory){
+      // we don't need a factory for this demo, it wouldn't make a difference if we did.
+        $scope.customers = [];
+         $scope.mike = true;
+        customerFactory.getCustomers(function (data){
+        $scope.customers = data;})
+
+        $scope.showhidden = function(){
+          console.log('I ran');
+          $scope.mike = false;
+        }
+
+        $scope.showit = function(){
+          console.log('I ran');
+          $scope.mike = true;
+        }
+
+        $scope.addCustomer = function (){
+  
+ 
+ var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; 
+var yyyy = today.getFullYear();
+today = mm+'/'+dd+'/'+yyyy;
+$scope.newCustomer.date = today;
+
+    // add to the array
+    $scope.customers.push($scope.newCustomer); 
+    customerFactory.updateCustomers($scope.customers)
+    // clear the form values
+    $scope.newCustomer = {};
+  
+    console.log('test');
+}
+    
+      $scope.removeCustomer = function(customer){
+   
+     $scope.customers.splice($scope.customers.indexOf(customer), 1);
+
+   } })
+  </script>
+  <style>
+  #errors{
+    color: red;
+  }
+  </style>
+</head>
+<body ng-app='myApp'>
+
+
+    <div ng-controller='friendsController'>
+     
+   <div ng-show='mike'>Should I be hidden</div>
+  
+      <div id='errors'></div>
+      <u>Add a new task</u>
+  <form>
+    Task Name: <input type='text' ng-model='newCustomer.name'>
+    Priority: <select ng-model='newCustomer.priority'>
+    <option value='High'>High</option>
+    <option value='Medium'>Medium</option>
+    <option value='Trivial'>Trivial</option>
+  </select>
+  Deadline: <input type='date' ng-model='newCustomer.deadline' />
+    <input type='submit' value='add new Customer' ng-click='addCustomer()'>
+</form>
+ Search Tasks: <input type="text" ng-model="filter_name" ng-keydown='showhidden()' ng-blur='showit()'>
+
+ <h2>Tasks</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tasks</th>
+      <th>Priority</th>
+      <th>Deadline</th>
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="customer in customers | filter:filter_name | orderBy:'priority' track by $index">
+      <td>{{customer.name}}</td><td ng-bind='customer.priority'></td>
+      <td ng-bind='customer.deadline'></td>
+      <td ng-bind='customer.date'></td>
+      <td><button ng-click='removeCustomer(customer)'>Remove</button></td>
+    </tr>
+    <tr ng-repeat="customer in customers | filter:filter_name | orderBy:'priority' track by $index">
+      <td ng-hide='mike'>{{customer.name}}</td>
+    </tr>
+    
+
+  </tbody>
+</table>
+
+    </div>
+
+</body>
+</html>
