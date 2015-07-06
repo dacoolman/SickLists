@@ -12,7 +12,8 @@ myAppModule.controller('genreController', function ($scope, genreFactory){
 
 	$scope.addGenre = function (){
 
-		genreFactory.addGenre($scope.newGenre);
+		genreFactory.addGenre($scope.newGenre, function(data) {
 		$scope.newGenre = {};
+		})
 	}
 })
