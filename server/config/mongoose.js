@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
-mongoose.connect('mongodb://localhost/Fullmean_Friends');
+mongoose.connect('mongodb://localhost/SickLists');
 var model_path = __dirname + '/../models';
 fs.readdirSync(model_path).forEach(function(file){
 

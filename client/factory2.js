@@ -3,7 +3,7 @@ myApp.factory('factory2', function($http){
 	var orders = [];
 	factory.addUsername = function(data){
 		factory.username = data;
-		console.log('factory log', factory.username);
+		
 	}
 	factory.getOrders = function(callback){
 

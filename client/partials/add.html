@@ -1,0 +1,19 @@
+
+<div class = 'container'>
+
+
+	<div class = 'row col-xs-6 col-xs-offset-3'>
+		<h4 class = 'text-center'><u>Add a new Playlist</u></h4>
+		<form>
+			<label for = "name">Name:</label>
+			<input type = 'text' ng-model = 'newPlaylist.name' placeholder = 'name'>
+			<label for = 'link'>Playlist (url):</label>
+			<input type = 'text' ng-model = ' newPlaylist.link' placeholder = 'http://'>
+			<label for = 'description'>Description:</label>
+			<textarea class = 'form-control' row = '5' ng-model = 'newPlaylist.description'></textarea>
+			<input class ='pull-right' type = 'submit' value = 'Create' ng-click='addPlaylist()'>
+		</form>
+	</div>
+
+
+</div>

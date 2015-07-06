@@ -1,13 +1,13 @@
 myApp.controller('controller1', function($scope, factory1){
 	$scope.mike = false;
 	$scope.customers = factory1.customers;
-	factory1.getCustomers(function(data){
-		$scope.customers = data
-	})
+// 	factory1.getCustomers(function(data){
+// 		$scope.customers = data
+// 	})
 
-	factory1.getQuestions(function(data){
-$scope.questions = data
-	});
+// 	factory1.getQuestions(function(data){
+// $scope.questions = data
+// 	});
 
 
 

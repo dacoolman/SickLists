@@ -16,8 +16,6 @@ var QuestionSchema = new mongoose.Schema({question: String,
 
 mongoose.model('Question', QuestionSchema);
 
-var UserSchema = new mongoose.Schema({username: String})
-mongoose.model('User', UserSchema);
 
 
 
