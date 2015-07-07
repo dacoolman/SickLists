@@ -73,7 +73,7 @@ playlistsController.like_playlist = function(req, res){
 				
 				if (the_playlist.likes[i] == req.body.user_id)
 					{
-					
+						console.log('already liked');
 						temp = false;
 						res.json(the_playlist.likes_count);
 						break;
@@ -99,7 +99,7 @@ playlistsController.like_playlist = function(req, res){
 			else{
 			
 
-					// the_user.likes_received++;
+				
 				the_user.likes.push(the_playlist)
 				console.log('hey there',the_user.likes[the_user.likes.length-1])
 				the_user.save(function(err, data2){
@@ -171,8 +171,56 @@ User.findOne({_id: req.params.userId}).populate('likes','uploads')
 		res.end();
 	}
 	else{
-		console.log(the_user);
-	res.json(the_user);
+		
+
+		User.count({}, function(err, total_count){
+			console.log('total count', total_count);
+		User.find({}, function(err, all_users){
+			var sortable = [];
+		for (var a_user in all_users){
+
+if(all_users[a_user].likes_received == undefined || all_users[a_user].likes_received == null)
+{
+	all_users[a_user].likes_received = 0;
+}
+sortable.push([all_users[a_user]._id, all_users[a_user].likes_received])
+
+		}
+		sortable.sort(function(a, b) {return b[1] - a[1]})
+		var index;
+		for (var i = 0; i<sortable.length; i++)
+		{
+			if (req.params.userId == sortable[i][0])
+				{index = i;
+					break;}
+
+		}
+		console.log('sortable', sortable);
+		user_rank = index + 1
+		console.log('ranking', the_user.rank);
+		the_user.total_users = total_count;
+		console.log('total', the_user.total_users);
+
+		
+		res.json({the_user: the_user, user_rank: user_rank, total_users: total_count});	
+		})	
+
+//
+// for (var the_user in the_users)
+// {
+// 
+
+// 	
+// }
+
+// 
+
+// sortable = sortable.slice(0, 10)
+//
+
+			
+		})
+	
 }
 })
 
@@ -194,7 +242,7 @@ if(the_users[the_user].likes_received == undefined || the_users[the_user].likes_
 	the_users[the_user].likes_received = 0;
 }
 
-	sortable.push([the_users[the_user]._id, the_users[the_user].likes_received])
+	sortable.push([the_users[the_user]._id, the_users[the_user].likes_received, the_users[the_user].user_name] )
 
 }
 
@@ -227,7 +275,7 @@ for (var the_playlist in the_genre.playlists)
 	the_genre.playlists[the_playlist].likes_count = 0;
 }
 
-	sortable.push([the_genre.playlists[the_playlist]._id, the_genre.playlists[the_playlist].likes_count])
+	sortable.push([the_genre.playlists[the_playlist]._id, the_genre.playlists[the_playlist].likes_count, the_genre.playlists[the_playlist].user_name])
 
 
 
