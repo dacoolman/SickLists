@@ -1,0 +1,11 @@
+<div ng-controller="leaderboardController">
+	<div class = 'container'>
+		<div class = 'row'>
+			<h3>Leaderboard for {{genre.name}}</h3>
+			<ol ng-repeat = "user in users_genre">
+				<li>{{user.name}}</li>
+			</ol>
+		</div>
+
+	</div>
+</div>

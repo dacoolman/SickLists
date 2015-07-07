@@ -15,13 +15,13 @@ myAppModule.config(function ($routeProvider) {
         })
 
 
-        .when('/add',{
+        .when('/add/:id',{
             templateUrl: 'partials/add.html'
         })
 
-        // .when('/show/:id',{
-        //     templateUrl: 'partials/show.html'
-        // })
+        .when('/leaderboard/:id',{
+            templateUrl: 'partials/leaderboard.html'
+        })
 
 
 
