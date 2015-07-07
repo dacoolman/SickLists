@@ -6,8 +6,5 @@ var UserSchema = new mongoose.Schema({
 	password: String,
 	likes: [{type: Schema.Types.ObjectId, ref: 'Playlist'}],
 	uploads: [{type: Schema.Types.ObjectId, ref: 'Playlist'}],
-	likes_received: 0
-
-
-	})
+	likes_received: Number})
 mongoose.model('User', UserSchema);

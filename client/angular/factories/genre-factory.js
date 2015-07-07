@@ -3,8 +3,9 @@ myAppModule.factory('genreFactory', function ($http) {
 	var genres = [];
 
 	factory.getGenres = function (callback) {
-		$http.get('/get_genre').success(function (output) {
+		$http.get('/get_genres').success(function (output) {
 			genres = output;
+			console.log(output)
 			callback(genres);
 		})
 	}

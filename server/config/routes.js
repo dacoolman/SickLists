@@ -25,11 +25,15 @@ module.exports = function(app){
 	});
 
 	app.post("/like_playlist/:playlistid", function(req, res){
-	playlists.add_playlist(req, res);
+	playlists.like_playlist(req, res);
 	});
 
 	app.get("/get_genre/:genreId", function(req, res){
 	playlists.get_genre(req, res);
+	});
+
+		app.get("/get_genres", function(req, res){
+	playlists.get_genres(req, res);
 	});
 
 	app.get("/get_leaderboard_genre/:genreId", function(req, res){

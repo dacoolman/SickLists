@@ -6,16 +6,71 @@ myApp.factory('factory1', function($http){
 
 //testing grounds
 
-url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
-		$http.post(url, {username: 'mike', genre_name: 'reggae', }).success(function(output){
-			console.log('add', output)
+// like playlist:
+
+url = '/like_playlist/' + '559b1e98ae18c5aa166b8415'
+
+	$http.post(url, {user_id: '559b2c104a74adad250632e0'}).success(function(output){
+			console.log('my likes', output)
 			
 			
 		}
 
 			);
+//559b25a4f966b78f1ef52d71
+url = '/get_user/' + '559b2c104a74adad250632e0'
 
-		//end
+$http.get(url).success(function(output){
+			console.log('see user', output)
+			
+			
+		}
+
+			);
+//get genre
+url = '/get_genres';
+$http.get(url).success(function(output){
+			console.log('see all genre', output)
+			
+			
+		}
+
+			);
+//get genre:
+
+// url = '/get_genre/' + '559b0568a7eb450e03c1da7a'
+
+// $http.get(url).success(function(output){
+// 			console.log('see genre', output)
+			
+			
+// 		}
+
+// 			);
+
+//add genre
+
+
+		// $http.get('/get_genres').success(function(output){
+		// 	console.log('see genres', output)
+			
+			
+		// }
+
+		// 	);
+
+// add playlist
+// url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
+// 		$http.post(url, {username: 'mike', genre_name: 'reggae', playlist_name: 'Summerchill', source: 'spotify', link: 'http://www.hello.com'}).success(function(output){
+// 			console.log('add', output)
+			
+			
+// 		}
+
+// 			);
+
+
+// 		//end
 
 	factory.addUsername = function(data){
 		factory.username = data;
