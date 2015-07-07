@@ -5,48 +5,56 @@ myApp.factory('factory1', function($http){
 
 
 //testing grounds
+// add playlist
+url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
+		$http.post(url, {user_name: 'mike', user_id: '559b2c104a74adad250632e0', genre_name: 'reggae', playlist_name: 'Summerchill', source: 'spotify', link: 'http://www.hello.com'}).success(function(output){
+			console.log('add a playlist', output)
+			
+			
+		}
 
+			);
 // like playlist:
 
-url = '/like_playlist/' + '559b1e98ae18c5aa166b8415'
+url = '/like_playlist/' + '559c04e0508776f443986430'
 
-	$http.post(url, {user_id: '559b2c104a74adad250632e0'}).success(function(output){
+	$http.post(url, {user_id: '559b3865e1cfaa8a323d4803'}).success(function(output){
 			console.log('my likes', output)
 			
 			
 		}
 
 			);
-//559b25a4f966b78f1ef52d71
-url = '/get_user/' + '559b2c104a74adad250632e0'
-
-$http.get(url).success(function(output){
-			console.log('see user', output)
-			
-			
-		}
-
-			);
-//get genre
-url = '/get_genres';
-$http.get(url).success(function(output){
-			console.log('see all genre', output)
-			
-			
-		}
-
-			);
-//get genre:
-
-// url = '/get_genre/' + '559b0568a7eb450e03c1da7a'
+// //559b25a4f966b78f1ef52d71
+// url = '/get_user/' + '559b3865e1cfaa8a323d4803'
 
 // $http.get(url).success(function(output){
-// 			console.log('see genre', output)
+// 			console.log('see the user', output)
 			
 			
 // 		}
 
 // 			);
+// //get genres
+// url = '/get_genres';
+// $http.get(url).success(function(output){
+// 			console.log('see all genres', output)
+			
+			
+// 		}
+
+// 			);
+//get genre:
+
+url = '/get_genre/' + '559b0568a7eb450e03c1da7a'
+
+$http.get(url).success(function(output){
+			console.log('see individual genre', output)
+			
+			
+		}
+
+			);
 
 //add genre
 
@@ -59,15 +67,30 @@ $http.get(url).success(function(output){
 
 		// 	);
 
-// add playlist
-// url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
-// 		$http.post(url, {username: 'mike', genre_name: 'reggae', playlist_name: 'Summerchill', source: 'spotify', link: 'http://www.hello.com'}).success(function(output){
-// 			console.log('add', output)
+
+//get leaderboard
+//
+
+// url = '/get_leaderboard_all/'
+
+// $http.get(url).success(function(output){
+// 			console.log('see whole leaderboard', output)
 			
 			
 // 		}
 
 // 			);
+
+//get leaderboard: genre:
+url = '/get_leaderboard_genre/' + '559b0568a7eb450e03c1da7a';
+
+$http.get(url).success(function(output){
+			console.log('see individual leaderboard', output)
+			
+			
+		}
+
+			);
 
 
 // 		//end

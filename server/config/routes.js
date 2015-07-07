@@ -41,7 +41,7 @@ module.exports = function(app){
 	});
 
 	app.get("/get_leaderboard_all", function(req, res){
-	playlist.get_leaderboard_all(req, res);
+	playlists.get_leaderboard_all(req, res);
 	});
 
 	app.get("/get_user/:userId", function(req, res){
