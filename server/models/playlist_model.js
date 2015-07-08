@@ -5,6 +5,7 @@ var PlaylistSchema = new mongoose.Schema({
 	_genre: {type: Schema.ObjectId, ref: 'Genre'},
 	genre_name: String,
 	user_name: String,
+	description: String,
 	playlist_name: String,
 	source: String,
 	link: String,

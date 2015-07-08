@@ -1,8 +1,7 @@
 <div ng-controller="genreController">
   <div class = 'container'>
     <div class ='row search-spacer'>
-     
-          <input class = 'pull-right' type = 'text' ng-model = 'filter_name' placeholder= 'search playlist'>
+         <!--  <input class = 'pull-right' type = 'text' ng-model = 'filter_name' placeholder= 'search playlist'> -->
     </div> 
 
 
@@ -12,39 +11,19 @@
         <form>
           <label for = "name">Add Genre:</label>
           <input type = 'text' ng-model = 'newGenre.genre_name'>
-          <input type = 'submit' value = 'Add' 
-          ng-click='addGenre()'>
+          <input type = 'submit' value = 'Add' ng-click='addGenre()'>
         </form>
 
         <h4 class = 'text-center'>Select genre</h4>
-        <ul class = 'side-nav' ng-repeat = "genre in genres">
-          <li><a class="btn btn-primary" href="#/add/{{genre.id}}" role="button">{{genre.name}}</a></li>
+        <ul class = 'side-nav' ng-repeat = "genre in genres | orderBy: 'genre_name'">
+          <li><a class="btn btn-primary" ng-href="#/add/{{genre._id}}" role="button">{{genre.genre_name}}</a></li>
         </ul>
+
+
       </div>
 
-      <div class = 'col-xs-10'>
-        <table class = 'table table-striped'>
-<!--           <tbody>
-            <tr>
-              <td><u>linktogotoplaylist.com</u> plus other informations</td>
-              <td>63189 like(s)
-                <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button>
-              </td>
-            </tr>
-            <tr>
-              <td><u>linktogotoplaylist.com</u> plus other informations</td>
-              <td>58192 like(s)
-                <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button>
-              </td>
-            </tr>
-            <tr>
-              <td><u>linktogotoplaylist.com</u> plus other informations</td>
-              <td>47872 like(s)
-                <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button>
-              </td>
-            </tr>
-          </tbody> -->
-        </table>
+      <div class = 'col-xs-10 col-xs-offset-2'>
+
       </div>
     </div>
    </div>

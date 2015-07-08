@@ -1,10 +1,12 @@
-<div ng-controller="leaderboardController">
+<div ng-controller="playlistController">
 	<div class = 'container'>
 		<div class = 'row'>
-			<h3>Leaderboard for {{genre.name}}</h3>
-			<ol ng-repeat = "user in users_genre">
-				<li>{{user.name}}</li>
-			</ol>
+<!-- <div ng-repeat = 'user in leaderboard_genre'>Hello</div>
+		test -->
+			<h3>Leaderboard for {{genre.genre_name}}</h3>
+			<div ng-repeat = 'user in leaderboard_genre'>
+				<p>{{$index+1}}. {{user[2]}}</p>
+			</div>
 		</div>
 
 	</div>

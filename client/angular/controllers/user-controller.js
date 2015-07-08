@@ -1,12 +1,16 @@
 myAppModule.controller('userController', function ($scope, $routeParams, userFactory){
 
-	userFactory.getUsers_genre($routeParams.id, function (data) {
-		$scope.users_genre = data;
+	userFactory.getCurrentUser(function (data) {
+		$scope.current_id = data;
 	})
 
-	playlistFactory.getGenre($routeParams.id, function (data) {
-		$scope.genre = data;
-	});
+	userFactory.getUser($routeParams.id, function (data) {
+		$scope.user = data;
+	})
+
+	// playlistFactory.getGenre($routeParams.id, function (data) {
+	// 	$scope.genre = data;
+	// });
 
 
 

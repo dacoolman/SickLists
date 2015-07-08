@@ -10,7 +10,7 @@ myAppModule.config(function ($routeProvider) {
             templateUrl: 'partials/home.html'
         })
 
-        .when('/profile',{
+        .when('/profile/:id',{
             templateUrl: 'partials/profile.html'
         })
 
@@ -22,6 +22,7 @@ myAppModule.config(function ($routeProvider) {
         .when('/leaderboard/:id',{
             templateUrl: 'partials/leaderboard.html'
         })
+
 
 
 

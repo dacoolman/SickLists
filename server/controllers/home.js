@@ -6,7 +6,7 @@ homeController.register = function(req, res){}
 
 homeController.login = function(req, res){
 
-var user = new User({name: req.body.user_name})
+var user = new User({name: req.body.user_name, likes_received: 0})
 
 	user.save(function(err,data){
 	if(err){
