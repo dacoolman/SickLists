@@ -6,6 +6,10 @@ var Genre = mongoose.model('Genre');
 var playlistsController = {}
 
 playlistsController.add_genre = function(req, res){
+
+if (req.body.genre_name == null || req.body.genre_name == undefined )
+	{res.json({error: 'Genre can\'t be null!'})}
+else{
 var genre = new Genre({user_name: req.body.user_name, genre_name: req.body.genre_name })
 	genre.save(function(err,data){
 	if(err){
@@ -15,10 +19,18 @@ var genre = new Genre({user_name: req.body.user_name, genre_name: req.body.genre
 		console.log(data);
 		res.json(data);
 	}
-})
+})}
 }
 
 playlistsController.add_playlist = function(req, res){
+if (req.body.link == null || req.body.link == undefined
+ || req.body.playlist_name == null || req.body.playlist_name == null
+  || req.body.source == null || req.body.source == null )
+{
+	res.json({error: 'Please fill out all fields'})
+}
+else{
+
 Genre.findOne({_id: req.params.genreId}, function(err, the_genre){
 User.findOne({_id: req.body.user_id}, function(err, the_user){
 
@@ -59,7 +71,7 @@ the_user.save(function(err, data3){
 
 })})
 //find1
-
+}
 }
 
 playlistsController.like_playlist = function(req, res){
@@ -266,16 +278,34 @@ if (err)
 		res.end();}
 	else{
 
-				console.log('genre infoo', the_genre.playlists);
+				
+			var playlist_obj = {};
+		for (var i = 0; i<the_genre.playlists.length; i++)
+		{
+			console.log(the_genre.playlists[i]);
+if (playlist_obj[the_genre.playlists[i]._user] == undefined)
+		{
+
+			playlist_obj[the_genre.playlists[i]._user] = [the_genre.playlists[i]._user, the_genre.playlists[i].likes_count, the_genre.playlists[i].user_name];
+
+		}
+		else {
+			playlist_obj[the_genre.playlists[i]._user][1] += the_genre.playlists[i].likes_count
+
+		}
+
+		}
+		console.log('playlist_obj', playlist_obj);
 		var sortable = []
-for (var the_playlist in the_genre.playlists)
+for (var the_playlist in playlist_obj)
 {
-	if(the_genre.playlists[the_playlist].likes_count == undefined || the_genre.playlists[the_playlist].likes_count == null)
+	console.log('the_playlist', the_playlist);
+	if(playlist_obj[the_playlist][1] == undefined || playlist_obj[the_playlist][1] == undefined == null)
 {
-	the_genre.playlists[the_playlist].likes_count = 0;
+	playlist_obj[the_playlist][1] = 0;
 }
 
-	sortable.push([the_genre.playlists[the_playlist]._id, the_genre.playlists[the_playlist].likes_count, the_genre.playlists[the_playlist].user_name])
+	sortable.push(playlist_obj[the_playlist])
 
 
 
