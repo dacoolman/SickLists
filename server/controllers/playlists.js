@@ -177,7 +177,7 @@ Genre.find({}, function(err, the_genres){
 
 playlistsController.get_user = function(req, res){
 console.log('user ran');
-User.findOne({_id: req.params.userId}).populate('likes','uploads')
+User.findOne({_id: req.params.userId}).populate('uploads')
 .exec(function(err, the_user){
 	if (err)
 	{

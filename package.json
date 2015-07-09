@@ -1,9 +1,25 @@
 {
-  "name": "FullMean_Friends",
+  "name": "sicklists",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.13.1",
     "express": "~4.2.0",
     "mongoose": "latest"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "description": "app for playlists",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacoolman/SickLists.git"
+  },
+  "author": "Mike and Hyun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dacoolman/SickLists/issues"
+  },
+  "homepage": "https://github.com/dacoolman/SickLists#readme"
 }

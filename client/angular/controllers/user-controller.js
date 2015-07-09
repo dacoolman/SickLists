@@ -1,5 +1,17 @@
-myAppModule.controller('userController', function ($scope, $routeParams, userFactory){
+myAppModule.controller('userController', function ($scope, $routeParams, userFactory, playlistFactory, genreFactory){
 
+	$scope.init = function(data){
+		$scope.user = data
+console.log(data);
+		userFactory.addUsername(data, function(returned_data){
+
+			$scope.current_id = returned_data._id;
+
+		playlistFactory.addUser_info(returned_data);
+		genreFactory.addUser_info(returned_data);
+		});
+	
+	};
 	userFactory.getCurrentUser(function (data) {
 		$scope.current_id = data;
 	})

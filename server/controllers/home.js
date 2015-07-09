@@ -14,7 +14,7 @@ var user = new User({name: req.body.user_name, likes_received: 0})
 		res.end();
 	}
 	else{
-		console.log(data);
+		console.log('this is the user', data);
 		res.json(data);
 	}
 })

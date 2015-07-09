@@ -16,7 +16,7 @@
         </form>
 
         <h4 class = 'text-center'>Select genre</h4>
-        <ul class = 'side-nav' ng-repeat = "genre in genres">
+        <ul class = 'side-nav' ng-repeat = "genre in genres | orderBy: 'genre_name' ">
           <li><a class="btn btn-primary" href="#/add/{{genre._id}}" role="button">{{genre.genre_name}}</a></li>
         </ul>
 
@@ -62,7 +62,7 @@
 		<div class = 'col-xs-10'>
 	        <table class = 'table table-striped'>
 	          <tbody>
-	            <tr ng-repeat = "playlist in genre.playlists | filter:filter_name">
+	            <tr ng-repeat = "playlist in genre.playlists | orderBy: '-likes_count' | filter:filter_name">
 					<td><a ng-href = {{playlist.link}} >{{playlist.playlist_name}}</a></td>
 					<td ng-bind = 'playlist.description'></td>
 					<td>{{playlist.likes_count}} like(s) <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button></td>

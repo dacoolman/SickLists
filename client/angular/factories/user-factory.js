@@ -1,8 +1,8 @@
 myAppModule.factory('userFactory', function ($http) { 
 	var factory = {};
-	factory.user_id = '559c6ef9d1ffa00f6fc124ff'
-	factory.user_name = 'mike';
-
+//
+	
+//
 
 	factory.getCurrentUser = function (callback) {
 		callback(factory.user_id);
@@ -20,6 +20,26 @@ myAppModule.factory('userFactory', function ($http) {
 	}
 
 
+factory.addUsername = function(data, callback){
+		
+		
+	$http.post('/add_user', {user_name: data}).success(function(output){
+		factory.user_id = output._id;
+		factory.user_name = output.name;
+			console.log('did i run');
+			console.log('add the user', output)
+			callback(output);
+		
+			
+		}
+
+			);
+
+	}
+
+			
+
+	
 
 
 
