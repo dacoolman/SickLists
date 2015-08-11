@@ -2,6 +2,7 @@ myAppModule.controller('genreController', function ($scope, genreFactory){
 
 	genreFactory.getGenres(function (data) {
 		$scope.genres = data;
+
 		// console.log($scope.genres)
 	});
 

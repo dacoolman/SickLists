@@ -22,7 +22,9 @@ myAppModule.config(function ($routeProvider) {
         .when('/leaderboard/:id',{
             templateUrl: 'partials/leaderboard.html'
         })
-
+           .when('/leaderboard_all',{
+            templateUrl: 'partials/leaderboard_all.html'
+        })
 
 
 

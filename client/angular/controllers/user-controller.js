@@ -7,6 +7,7 @@ console.log(data);
 
 			$scope.current_id = returned_data._id;
 
+
 		playlistFactory.addUser_info(returned_data);
 		genreFactory.addUser_info(returned_data);
 		});

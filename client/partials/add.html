@@ -1,76 +1,106 @@
+<div class = 'background-splash'>
 <div ng-controller="playlistController">
 	<div class = 'container'>
 
-		<div class ='row search-spacer'>
-          <input class = 'pull-right' type = 'text' ng-model = 'filter_name' placeholder= 'search playlist'>
-    </div> 
-
-
-    <div class = 'row'>
-
-      <div class = 'col-xs-2'>
-        <form>
-          <label for = "name">Add Genre:</label>
-          <input type = 'text' ng-model = 'newGenre.genre_name'>
-          <input type = 'submit' value = 'Add' ng-click='addGenre()'>
-        </form>
-
-        <h4 class = 'text-center'>Select genre</h4>
-        <ul class = 'side-nav' ng-repeat = "genre in genres | orderBy: 'genre_name' ">
-          <li><a class="btn btn-primary" href="#/add/{{genre._id}}" role="button">{{genre.genre_name}}</a></li>
-        </ul>
-
-
-      </div>
+		<div class ='row min-spacer'></div> 
 
 
 
+		<div class = 'row'>
 
-	<div class = 'col-xs-10'>
+          <form>
+            <div class = 'col-xs-4 col-xs-offset-4'>
+              <label for = "name" class = 'text-center'>Add Genre:</label>
+              <input type = 'text' ng-model = 'newGenre.genre_name'>
+              <input type = 'submit' value = 'Add' ng-click='addGenre()'>
+            </div>
+          </form>
 
-      
-		<p>{{genre.genre_name}}</p>
-		 <a href = '#/leaderboard/{{genre._id}}'>Leaderboard</a>
+          <input class = 'pull-right' type = 'text' ng-model = 'filter_genre_name' placeholder= 'search genre'>
+
+          <div class ='row search-spacer'></div> 
+
+          <div class = 'row'>
+            <div class = 'col-xs-2 genre-box' ng-repeat = "genre in genres | filter: filter_genre_name | orderBy: 'genre_name'">
+              <a ng-href="#/add/{{genre._id}}">{{genre.genre_name}}</a>
+            </div>
+          </div>
+
+        </div>
+
+	    <div class = 'row middle-line'>
+	    </div>
+
+	    <div class = 'row'>
+	    	<div class = 'col-xs-8'>
+				<h3 class = "text-left">Showing playlists for: {{genre.genre_name}}</h3>
+			</div>
+			<div class = 'col-xs-4'>
+				<div class = 'row'>
+					<a class = 'pull-right' ng-href = '#/leaderboard/{{genre._id}}'>Leaderboard</a>
+				</div>
+				<div class = 'row'>
+					<input class = 'pull-right need-space' type = 'text' ng-model = 'filter_name' placeholder= 'search playlist'>
+				</div>
+				<div class = 'row'>
+					<a class='pull-right' href ng-click="showForm = !showForm" ng-hide = 'showForm'>Add a new Playlist</a>
+				</div>
+			</div>
+	    </div>
+
+	    <div class ='row min-spacer'></div>
+
+	    <div class = 'row'>
+			<div class = 'col-xs-9'>
 
 
 
-
-
-
-	<a class='btn btn-success' href ng-click="showForm = !showForm" ng-hide = 'showForm'>Add a new Playlist</a>
-		<div class = 'row col-xs-6 col-xs-offset-3' ng-show='showForm'>
-
-			<h4 class = 'text-center'><u>Add a new Playlist</u></h4>
-			<form>
-				<label for = "name">Name:</label>
-				<input type = 'text' ng-model = 'newPlaylist.playlist_name' placeholder = 'name'>
-				<label for = 'link'>Playlist (url):</label>
-				<input type = 'text' ng-model = ' newPlaylist.link' placeholder = 'http://'>
-				<label for = 'source'>Source:</label>
-				<input type = 'text' ng-model = ' newPlaylist.source' placeholder = 'source'>
-				<label for = 'description'>Description:</label>
-				<textarea class = 'form-control' row = '5' ng-model = 'newPlaylist.description'></textarea>
-				<input class ='pull-right' type = 'submit' value = 'Create' ng-click='addPlaylist()'>
-			</form>
-		</div>
-
-
-
-
-
-
-		<div class = 'col-xs-10'>
-	        <table class = 'table table-striped'>
-	          <tbody>
-	            <tr ng-repeat = "playlist in genre.playlists | orderBy: '-likes_count' | filter:filter_name">
-					<td><a ng-href = {{playlist.link}} >{{playlist.playlist_name}}</a></td>
+		        <table class = 'table'>
+		          <tbody>
+		          <tr ng-repeat = "playlist in genre.playlists | orderBy: '-likes_count' | filter:filter_name">
+					<td><a ng-href = {{playlist.link}} target="_blank" >{{playlist.playlist_name}}</a></td>
 					<td ng-bind = 'playlist.description'></td>
-					<td>{{playlist.likes_count}} like(s) <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button></td>
+					<td ng-bind = 'playlist.source'></td>
+					<td>{{playlist.likes_count}} like(s) <button ng-click = 'addLike(playlist._id)' class="btn btn-default"><span class="glyphicon glyphicon-music"></span></button></td><td> <a ng-href = '#/profile/{{playlist._user}}' >{{playlist.user_name}}</a> </td>
 	            </tr>
-	          </tbody>
-	        </table>
-      	</div>
+		          </tbody>
+		        </table>
 
-      	</div>
-	</div>
+	      	</div>
+
+			<div class = 'col-xs-3' ng-show='showForm'>
+				<h4 class = 'text-center'><u>Add a new Playlist</u></h4>
+				<form>
+					<div class = 'form-group'>
+						<label for = "name">Name:</label>
+						<input type = 'text' class = 'form-control' ng-model = 'newPlaylist.playlist_name' placeholder = 'name'>
+					</div>
+					<div class = 'form-group'>
+						<label for = 'link'>Playlist (url):</label>
+						<input type = 'text' class = 'form-control' ng-model = ' newPlaylist.link' placeholder = 'http://'>
+					</div>
+					<div class = 'form-group'>
+						<label for = 'source'>Source:</label>
+						<input type = 'text' class = 'form-control' ng-model = ' newPlaylist.source' placeholder = 'source'>
+					</div>
+					<div class = 'form-group'>
+						<label for = 'description'>Description:</label>
+						<textarea class = 'form-control' row = '5' ng-model = 'newPlaylist.description'></textarea>
+					</div>
+					<input class ='pull-right' type = 'submit' value = 'Create' ng-click='addPlaylist()'>
+				</form>
+			</div>
+
+	    
+	    </div>
+
+
+
+
+
+
+
+
+
+</div>
 </div>

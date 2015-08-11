@@ -1,36 +1,52 @@
-  <script>
-  console.log('log me');
-  </script>
+<div class = 'background-splash'>
 <div ng-controller="genreController">
 
 
-
   <div class = 'container'>
+
     <div class ='row search-spacer'>
-         <!--  <input class = 'pull-right' type = 'text' ng-model = 'filter_name' placeholder= 'search playlist'> -->
     </div> 
 
 
-    <div class = 'row'>
+ <div class = 'row'>
 
-      <div class = 'col-xs-2'>
-        <form>
-          <label for = "name">Add Genre:</label>
-          <input type = 'text' ng-model = 'newGenre.genre_name'>
-          <input type = 'submit' value = 'Add' ng-click='addGenre()'>
-        </form>
+          <form>
+            <div class = 'col-xs-4 col-xs-offset-4'>
+              <label for = "name" class = 'text-center'>Add Genre:</label>
+              <input type = 'text' ng-model = 'newGenre.genre_name'>
+              <input type = 'submit' value = 'Add' ng-click='addGenre()'>
+            </div>
+          </form>
 
-        <h4 class = 'text-center'>Select genre</h4>
-        <ul class = 'side-nav' ng-repeat = "genre in genres | orderBy: 'genre_name'">
-          <li><a class="btn btn-primary" ng-href="#/add/{{genre._id}}" role="button">{{genre.genre_name}}</a></li>
-        </ul>
+          <input class = 'pull-right' type = 'text' ng-model = 'filter_genre_name' placeholder= 'search genre'>
 
+          <div class ='row search-spacer'></div> 
 
-      </div>
+          <div class = 'row'>
+            <div class = 'col-xs-2 genre-box' ng-repeat = "genre in genres | filter: filter_genre_name | orderBy: 'genre_name'">
+              <a ng-href="#/add/{{genre._id}}">{{genre.genre_name}}</a>
+            </div>
+          </div>
 
-      <div class = 'col-xs-10 col-xs-offset-2'>
+        </div>
 
-      </div>
+    <div class ='row search-spacer'>
     </div>
-   </div>
+
+
+      
+
+
+
+
+  </div>
+
+
+    <h3 class = 'text-center'>Select or add a genre to begin</h3>
+
+
+
+
+
  </div>
+</div>

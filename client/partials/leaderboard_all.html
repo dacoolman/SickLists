@@ -1,0 +1,22 @@
+
+<div ng-controller="playlistController">
+	<div class = 'container'>
+		<div class ='row min-spacer'></div>
+		<div class = 'row text-center'>
+<!-- <div ng-repeat = 'user in leaderboard_genre'>Hello</div>
+		test -->
+			<h3><u>All time leaders</u></h3>
+			<div class ='row min-spacer'></div>
+			<div ng-repeat = 'user in leaderboard_all'>
+				<h4>{{$index+1}}. <a ng-href="#/profile/{{user[0]}}">{{user[2]}}</a>: {{user[1]}}</h4>
+				<span class="glyphicon glyphicon-star-empty"></span>
+			</div>
+		</div>
+
+	</div>
+
+
+			<!-- <img src = '../img/love-music.jpg' alt='love_music' style = "width: 10%; height: 10%;"> -->
+
+</div>
+

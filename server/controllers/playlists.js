@@ -256,7 +256,7 @@ if(the_users[the_user].likes_received == undefined || the_users[the_user].likes_
 	the_users[the_user].likes_received = 0;
 }
 
-	sortable.push([the_users[the_user]._id, the_users[the_user].likes_received, the_users[the_user].user_name] )
+	sortable.push([the_users[the_user]._id, the_users[the_user].likes_received, the_users[the_user].name] )
 
 }
 

@@ -3,6 +3,7 @@ myAppModule.factory('genreFactory', function ($http) {
 	var genres = [];
 	var genre = {};
 	var leaderboard_genre = [];
+	var leaderboard_all = [];
 
 factory.addUser_info = function(data){
 
@@ -33,7 +34,7 @@ factory.addUser_info = function(data){
 
 	factory.getGenre = function (id, callback) {
 		$http.get('/get_genre/' + id).success(function (output) {
-			// console.log(output);
+			console.log('getting genre', output);
 			genre = output;
 			callback(genre);
 		})
@@ -56,6 +57,8 @@ factory.addUser_info = function(data){
 			}
 			else{
 				genre.playlists.push(res)
+				// console.log('genre in factory', genre);
+				
 				callback(genre);
 			}
 		})
@@ -80,6 +83,15 @@ factory.addUser_info = function(data){
 			// console.log(output[0][1]);
 			leaderboard_genre = output;
 			callback(leaderboard_genre);
+		})
+	}
+
+	factory.getLeaderboard_all = function (callback) {
+		$http.get('/get_leaderboard_all/').success(function (output) {
+			console.log('leaderboard all', output);
+			// console.log(output[0][1]);
+			leaderboard_all = output;
+			callback(leaderboard_all);
 		})
 	}
 

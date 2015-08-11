@@ -1,54 +1,52 @@
 <div ng-controller="userController">
-  <style>
-  .playlist{
-    display: inline-block;
-    solid: 1px solid silver;
-    margin: 10px;
-  }
-  </style>
 <div class = 'container'>
 
 
   <div class ='row search-spacer text-center'>
-    <h3>Profile for Mike</h3>
+    <h3>Profile for {{user.the_user.name}}</h3>
   </div> 
 
 
   <div class = 'row'>
     <p>Total likes on playlists: {{user.the_user.likes_received}}</p>
-    <p>Mike's rank among users: {{user.user_rank}}/{{user.total_users}}</p>
-      </div>
+    <p>{{user.the_user.name}}'s rank among users: {{user.user_rank}}/{{user.total_users}}</p>
   </div>
 
+
   
-			
+      
   <div class = 'row'>
-      <h4 class = 'text-center'><u>Mike's playlist</u></h4>
-       <div class = "playlist" ng-repeat="upload in user.the_user.uploads"><a ng-href="{{upload.link}}">{{upload.playlist_name}}</a><br> Genre: <a ng-href="#/add/{{upload._user}}">{{upload.genre_name}}</a><br> Total likes: {{upload.likes_count}}<br>
-source: {{upload.source}}
+    <h4 class = 'text-center'><u>{{user.the_user.name}}'s playlist</u></h4>
+    <table class = 'table'>
+      <tbody>
+        <tr ng-repeat = "upload in user.the_user.uploads">
+          <td><p><a ng-href="{{upload.link}}" target="_blank">{{upload.playlist_name}}</a></p></td>
+          <td><p>Genre: <a ng-href="#/add/{{upload._genre}}">{{upload.genre_name}}</a></p></td>
+          <td><p>Total likes: {{upload.likes_count}}</p></td>
+          <td><p>Description: {{upload.description}}</p></td>
+          <td><p>source: {{upload.source}}</p></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-      <!-- <div class = 'col-xs-2 playlist-box' ng-repeat = "product in products | filter:filter_name | orderBy: 'date'">
-        <img src="{{product.image}}" alt="{{product.name}}" width="150" height="150">
-        <p class='text-center'>{{product.name}}</p>
-        <p class="text-center">({{product.count}} left)</p>
-      </div> -->
-  </div>
+  
+  <div class ='row min-spacer'></div>
 
   <div class = 'row'>
     <h4 class = 'text-center'><u>Liked playlist</u></h4>
-    <div class = "playlist" ng-repeat="liked in user.the_user.likes track by $index"><a ng-href="{{liked.link}}">{{liked.playlist_name}}</a><br> 
-      Genre: <a ng-href="#/add/{{liked._genre}}">{{liked.genre_name}}</a><br>
-      Playlist Author: <a ng-href="#/profile/{{liked._user}}">{{liked.user_name}}</a><br>
-       Total likes: {{liked.likes_count}}<br>
-source: {{liked.source}}</div>
-      </div>
-<!--     <div class = 'col-xs-2 playlist-box' ng-repeat = "product in products | filter:filter_name | orderBy: 'date'">
-      <img src="{{product.image}}" alt="{{product.name}}" width="150" height="150">
-      <p class='text-center'>{{product.name}}</p>
-      <p class="text-center">({{product.count}} left)</p>
-    </div> -->
+    <table class = 'table'>
+      <tbody>
+        <tr ng-repeat = "liked in user.the_user.likes track by $index">
+          <td><p><a ng-href="{{liked.link}}" target="_blank">{{liked.playlist_name}}</a> </p></td>
+          <td><p>Genre: <a ng-href="#/add/{{liked._genre}}">{{liked.genre_name}}</a></p></td>
+          <td><p>Playlist Author: <a ng-href="#/profile/{{liked._user}}">{{liked.user_name}}</a></p></td>
+          <!-- <td><p> Total likes: {{liked.likes_count}}</p></td> -->
+          <td><p> Description: {{liked.description}}</p></td>
+          <td><p>source: {{liked.source}}</p></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-
- </div>
+</div>
 </div>

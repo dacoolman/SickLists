@@ -20,17 +20,55 @@ select {
   margin-bottom: 40px;
 }
 
-.background-splash{
+.min-spacer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.background-main{
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: lightblue;
+  background-size: cover;
+  background-image: url('../img/concert.jpg');
 }
 
-ul.side-nav{
+.bottom-splash{
+  width:100%;
+  height:60px;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+.middle-line{
+  height: 30px;
+  border-top: 2px solid black;
+}
+
+.leaderboard-splash{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+/*  background: url('../img/giftly.png') repeat;*/
+  background-size:cover;
+  background: url('../img/grey-vintage.jpg');
+}
+
+
+/*ul.side-nav{
   text-align: center;
   padding-left: 0;
   list-style: none;
+  display: inline;
+}*/
+
+.genre-box{
+  height: 50px;
+  text-align: center;
+  margin-top: center;
+  font-size: 1.5em;
 }
 
 .sick{
@@ -52,36 +90,113 @@ ul.side-nav{
 
 .navbar-default{
   background-image: none;
-  background-color: white;
+  opacity: 0.4;
+  /*background-color: silver;*/
   border: none;
   margin-bottom: 0;
 }
 
-.container .jumbotron{
+.jumbotron{
+  /*margin-top: 33.33333333%*/
+  font-family: "Lucida Console", Monaco, monospace;
   border-radius: 0px;
   border: 2px solid silver;
-  margin-top: 78px;
+  margin-top: 170px;
   padding-top: 1px;
   padding-left: 20px;
-  background-color: #E8E8E8;
+  background-color: rgba(0,0,0,0.65);
 }
+
+div.jumbotron h1{
+  color: #F0F0F0;
+}
+
+div.jumbotron h2{
+  color: #888888;
+}
+ 
+
+.front-fonts{
+  color: #F0F0F0;
+}
+
+.bottom-3{
+  margin-left: 77px;
+}
+
+label{
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1.2em;
+}
+
+.small_box{
+  background-color: rgba(0,0,0,0.65);
+  height: 170px;
+  border-radius: 5px;
+  border: 2px solid silver;
+  /*background-color: white;*/
+}
+
+.need-space{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.side-bar{
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+input[type=submit]{
+  font-family: "Lucida Console", Monaco, monospace;
+  background-image: none;
+  text-shadow: none;
+  color: white;
+  background-color: #009966;
+  border-radius: 0px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 0px black;
+}
+
+input[type=text]:focus {border-color:darkgreen; }
+
 
 .btn-primary{
   background-image: none;
   text-shadow: none;
   color: white;
-  background-color: #0066FF;
+  background-color: #009966;
   border-radius: 0px;
   border: 2px solid black;
-  box-shadow: 4px 4px 0px black;
+  box-shadow: 2px 2px 0px black;
 }
 
 .btn-default{
   background-image: none;
   text-shadow: none;
-  color: black;
-  background-color: pink;
-  border-radius:0px;
+  color: #FF0099;
+  background-color: white;
+  border-radius:10px;
   border: 2px solid black;
-  box-shadow: 4px 4px 0px black;
+  box-shadow: 2px 2px 0px black;
 }
+
+.playlist{
+    /*display: inline-block;*/
+    /*solid: 1px solid silver;*/
+    margin: 10px;
+
+}
+
+
+
+
+
+a, p, h1, h2, h3, h4, h5{
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+p{
+  font-size: 1em;
+}
+
