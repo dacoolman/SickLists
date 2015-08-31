@@ -1,13 +1,8 @@
 <div class = 'background-splash'>
 <div ng-controller="playlistController">
 	<div class = 'container'>
-
 		<div class ='row min-spacer'></div> 
-
-
-
 		<div class = 'row'>
-
           <form>
             <div class = 'col-xs-4 col-xs-offset-4'>
               <label for = "name" class = 'text-center'>Add Genre:</label>
@@ -15,22 +10,16 @@
               <input type = 'submit' value = 'Add' ng-click='addGenre()'>
             </div>
           </form>
-
           <input class = 'pull-right' type = 'text' ng-model = 'filter_genre_name' placeholder= 'search genre'>
-
           <div class ='row search-spacer'></div> 
-
           <div class = 'row'>
             <div class = 'col-xs-2 genre-box' ng-repeat = "genre in genres | filter: filter_genre_name | orderBy: 'genre_name'">
               <a ng-href="#/add/{{genre._id}}">{{genre.genre_name}}</a>
             </div>
           </div>
-
         </div>
-
 	    <div class = 'row middle-line'>
 	    </div>
-
 	    <div class = 'row'>
 	    	<div class = 'col-xs-8'>
 				<h3 class = "text-left">Showing playlists for: {{genre.genre_name}}</h3>
@@ -47,14 +36,9 @@
 				</div>
 			</div>
 	    </div>
-
 	    <div class ='row min-spacer'></div>
-
 	    <div class = 'row'>
 			<div class = 'col-xs-9'>
-
-
-
 		        <table class = 'table'>
 		          <tbody>
 		          <tr ng-repeat = "playlist in genre.playlists | orderBy: '-likes_count' | filter:filter_name">
@@ -65,9 +49,7 @@
 	            </tr>
 		          </tbody>
 		        </table>
-
 	      	</div>
-
 			<div class = 'col-xs-3' ng-show='showForm'>
 				<h4 class = 'text-center'><u>Add a new Playlist</u></h4>
 				<form>
@@ -90,17 +72,6 @@
 					<input class ='pull-right' type = 'submit' value = 'Create' ng-click='addPlaylist()'>
 				</form>
 			</div>
-
-	    
 	    </div>
-
-
-
-
-
-
-
-
-
 </div>
 </div>

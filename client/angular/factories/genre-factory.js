@@ -6,13 +6,9 @@ myAppModule.factory('genreFactory', function ($http) {
 	var leaderboard_all = [];
 
 factory.addUser_info = function(data){
-
 	factory.user_id = data._id;
-	factory.user_name = data.name;
-
-			
+	factory.user_name = data.name;	
 		}
-
 	// $http.post('/add_user', {user_name: 'Mike'}).success(function(output){
 	// 	console.log(output);
 	// })
@@ -38,7 +34,6 @@ factory.addUser_info = function(data){
 			genre = output;
 			callback(genre);
 		})
-
 	}
 
 
@@ -50,7 +45,6 @@ factory.addUser_info = function(data){
 		info.user_id = factory.user_id;
 		info.user_name = factory.user_name;
 		$http.post('/add_playlist/'+genre_id, info).success(function (res) {
-
 			console.log(res)
 			if(res.error){
 				alert(res.error);
@@ -58,7 +52,6 @@ factory.addUser_info = function(data){
 			else{
 				genre.playlists.push(res)
 				// console.log('genre in factory', genre);
-				
 				callback(genre);
 			}
 		})

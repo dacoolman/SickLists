@@ -3,7 +3,6 @@ var fs = require('fs');
 mongoose.connect('mongodb://localhost/SickLists');
 var model_path = __dirname + '/../models';
 fs.readdirSync(model_path).forEach(function(file){
-
 	if (file.indexOf('.js') > 0)
 	{
 		require(model_path + '/' + file);

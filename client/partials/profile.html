@@ -1,20 +1,12 @@
 <div ng-controller="userController">
 <div class = 'container'>
-
-
   <div class ='row search-spacer text-center'>
     <h3>Profile for {{user.the_user.name}}</h3>
   </div> 
-
-
   <div class = 'row'>
     <p>Total likes on playlists: {{user.the_user.likes_received}}</p>
     <p>{{user.the_user.name}}'s rank among users: {{user.user_rank}}/{{user.total_users}}</p>
   </div>
-
-
-  
-      
   <div class = 'row'>
     <h4 class = 'text-center'><u>{{user.the_user.name}}'s playlist</u></h4>
     <table class = 'table'>
@@ -29,9 +21,7 @@
       </tbody>
     </table>
   </div>
-  
   <div class ='row min-spacer'></div>
-
   <div class = 'row'>
     <h4 class = 'text-center'><u>Liked playlist</u></h4>
     <table class = 'table'>
@@ -47,6 +37,5 @@
       </tbody>
     </table>
   </div>
-
 </div>
 </div>

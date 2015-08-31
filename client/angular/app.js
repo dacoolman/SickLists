@@ -14,7 +14,6 @@ myAppModule.config(function ($routeProvider) {
             templateUrl: 'partials/profile.html'
         })
 
-
         .when('/add/:id',{
             templateUrl: 'partials/add.html'
         })
@@ -26,9 +25,11 @@ myAppModule.config(function ($routeProvider) {
             templateUrl: 'partials/leaderboard_all.html'
         })
 
-
+        //   .when('/logoff',{
+        //     templateUrl: 'partials/profile.html'
+        // })   
 
         .otherwise({
-          redirectTo: '/home'
+          redirectTo: '/'
         });
     });

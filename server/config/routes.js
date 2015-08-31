@@ -1,9 +1,7 @@
-
 var home = require("../controllers/home.js");
 var playlists = require("../controllers/playlists.js");
 var customers = require("../controllers/customers.js");
 module.exports = function(app){
-
 // 	app.post("/add", function(req, res){
 // customers.add(req, res);
 // });
@@ -47,11 +45,6 @@ module.exports = function(app){
 	app.get("/get_user/:userId", function(req, res){
 	playlists.get_user(req, res);
 	});
-
-
-
-
-
 
 	app.post("/add_user", function(req, res){
 	home.login(req, res);

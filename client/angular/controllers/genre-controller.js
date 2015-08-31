@@ -2,23 +2,17 @@ myAppModule.controller('genreController', function ($scope, genreFactory){
 
 	genreFactory.getGenres(function (data) {
 		$scope.genres = data;
-
-		// console.log($scope.genres)
 	});
 
 	// $scope.addUser = function (){
-
 	// 	genreFactory.addGenre($scope.newGenre);
 	// 	$scope.newGenre = {};
 	// }
-
-
 
 	$scope.addGenre = function (){
 console.log('scope genres', $scope.genres)
 		for(var x in $scope.genres)
 		{
-			
 			if($scope.newGenre.genre_name.toLowerCase()
 			 === $scope.genres[x].genre_name.toLowerCase())
 			{
@@ -27,7 +21,6 @@ console.log('scope genres', $scope.genres)
 				return;
 			}
 		}
-		
 		genreFactory.addGenre($scope.newGenre, function(data) {
 			$scope.genres = data;
 			$scope.newGenre = {};

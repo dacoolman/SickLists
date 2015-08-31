@@ -80,58 +80,35 @@ var index;
 for (var i = 0; i<these_users.answers; i++)
 {
   if ( these_users.answers[i]._id == req.body.answer_id )
-  {index = i;
+    {index = i;
     break;}
 }
-
 these_users.answers[index].likes.push(req.body.user_id);
- 
-
 }
-
-
 }
-
 )}
 
 customerController.all_questions = function(req, res){
   Question.find({}, function(err, these_users){
-
   if(err){
       console.log('something went wrong');
     }
   else{
     console.log(these_users);
-
-      res.json(these_users);
-
-
+    res.json(these_users);
   }})
-
-
 }
 
 customerController.all_answers = function(req, res){
   Question.find({_id: req.params.id}, function(err, these_users){
-
   if(err){
-      console.log('something went wrong');
-    }
+    console.log('something went wrong');
+  }
   else{
     console.log(these_users);
-
-      res.json(these_users);
-
-
+    res.json(these_users);
   }})
-
-
 }
-
-
-
-
-
 
 customerController.add = function(req, res){
 	 var customer = new Customer({name: req.body.name, date: req.body.date});
@@ -150,16 +127,12 @@ customerController.add = function(req, res){
 }
 customerController.show = function(req, res){
 	Customer.find({}, function(err, these_users){
-
 	if(err){
       console.log('something went wrong');
     }
 	else{
-		console.log(these_users);
-
-      res.json(these_users);
-
-
+  	console.log(these_users);
+    res.json(these_users);
 	}})
 }
 customerController.delete_customer = function(req, res){
@@ -174,14 +147,12 @@ customerController.delete_customer = function(req, res){
 }
 customerController.add_order = function(req, res){
 	 var order = new Order({customer: req.body.customer, date: req.body.date, quantity: req.body.quantity, product: req.body.quantity});
- 
   order.save(function(err, room){
     if(err){
       console.log('something went wrong');
     }
     else{
       console.log('successfully added a user!');
-     
       res.json(room);   //     request.body.name
    // request.body.age;
     }
@@ -189,20 +160,12 @@ customerController.add_order = function(req, res){
 }
 customerController.show_orders = function(req, res){
 	Order.find({}, function(err, these_users){
-
 	if(err){
-      console.log('something went wrong');
+    console.log('something went wrong');
     }
 	else{
 		console.log(these_users);
-
-      res.json(these_users);
-
-
+    res.json(these_users);
 	}})
-
-
 }
-
-
 module.exports = customerController;

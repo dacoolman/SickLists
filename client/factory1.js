@@ -22,13 +22,9 @@ url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
 		
 	$http.post('/add_user', {user_name: factory.username}).success(function(output){
 			console.log('did i run');
-			console.log('add', output)
-		
-			
+			console.log('add', output)	
 		}
-
 			);
-
 	}
 
 // 	factory.add_question = function(info, callback, callback2){
@@ -182,6 +178,5 @@ url = '/add_playlist/' + '559b0568a7eb450e03c1da7a';
 		
 		
 // 	};
-
 	return factory;
 })

@@ -34,19 +34,36 @@
                     <div id='name'></div>
   <script>
 var my_name = prompt("Please enter your name");
+my_name = my_name.trim();
+for (var i =0; i<my_name.length; i++)
+{
+  console.log(my_name[i])
+  if (my_name[i] == ' ')
+    {
+      console.log('i ran')
+      my_name =  my_name.slice(0,i) + '&nbsp;' + my_name.slice(i + 1, my_name.length)
+    }
+}
+console.log(my_name)
 var temp = "init('" + my_name + "')"
+console.log('yo', temp)
 document.getElementById('name').innerHTML += "<div ng-init="+ temp +"></div>"
 </script>
               <ul class='nav navbar-nav navbar-right'>
                  <li><a ng-href='#/leaderboard_all'>All time leaders</a></li>  
                 <li><a ng-href="#/profile/{{current_id}}">Profile</a></li>
-                <li><a href="#/home">Log Off</a></li>
+                <li><a href='javascript:void(null);' onclick='logoff()'>Log Off</a></li>
               </ul>
               </div>
           </div>
         </nav>
       </div>
+      <script>
+      function logoff(){
+        window.location.assign('/');
+      }
 
+</script>
 
 
         <div ng-view="">

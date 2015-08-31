@@ -1,17 +1,12 @@
 myAppModule.controller('playlistController', function ($scope, $routeParams, genreFactory){
-
-
 	genreFactory.getGenres(function (data) {
 		$scope.genres = data;
 		// console.log($scope.genres)
 	});
 
 	$scope.addGenre = function (){
-
-
 		for(var x in $scope.genres)
 		{
-			
 			if($scope.newGenre.genre_name.toLowerCase()
 			 === $scope.genres[x].genre_name.toLowerCase())
 			{
@@ -26,7 +21,6 @@ myAppModule.controller('playlistController', function ($scope, $routeParams, gen
 			$scope.newGenre = {};
 		})
 	}
-
 	genreFactory.getGenre($routeParams.id, function (data) {
 		console.log('genre data', data);
 		$scope.genre = data;
@@ -39,7 +33,6 @@ myAppModule.controller('playlistController', function ($scope, $routeParams, gen
 	genreFactory.getLeaderboard_all(function (data) {
 		$scope.leaderboard_all = data;
 	});
-
 
 	$scope.addLike = function (_id){
 		genreFactory.addLike(_id, $routeParams.id, function() {
